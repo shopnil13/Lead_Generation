@@ -2,11 +2,59 @@
 
 A simple pipeline that reads PDFs, extracts text, uses an LLM (OpenAI or Gemini) to infer a schema and produce records, and writes a local Excel file per input PDF.
 
+## Prerequisites
+- Git (Windows: install from `https://git-scm.com`; macOS: `xcode-select --install` or `brew install git`; Ubuntu/Debian: `sudo apt-get update && sudo apt-get install -y git`)
+- Python 3.9+ with pip (Windows: install from `https://www.python.org/downloads/` and check "Add Python to PATH"; macOS: `brew install python`; Ubuntu/Debian: `sudo apt-get update && sudo apt-get install -y python3 python3-pip python3-venv`)
+- Optional: `python-dotenv` for automatic `.env` loading (the app still reads `.env` without it)
+
+## Clone From GitHub
+```bash
+git clone https://github.com/shopnil13/Lead_Generation.git
+cd TEXT_EXTRACT
+```
+
 ## Quick Start
-1. Put PDFs in `input/`.
-2. Create a virtual environment and install dependencies.
+1. Clone the repo (see "Clone From GitHub").
+2. Create a virtual environment and install dependencies (see "Local Setup (Detailed)").
 3. Set environment variables (see `.env.example`).
-4. Run `python -m src.main`.
+4. Put PDFs in `input/`.
+5. Run `python -m src.main`.
+
+## Local Setup (Detailed)
+1. Create a virtual environment.
+```powershell
+py -m venv .venv
+```
+```bash
+python3 -m venv .venv
+```
+2. Activate the virtual environment.
+```powershell
+.venv\Scripts\Activate.ps1
+```
+```bash
+source .venv/bin/activate
+```
+3. Install dependencies.
+```bash
+pip install -r requirements.txt
+```
+4. Optional: install `python-dotenv` if you want automatic `.env` loading.
+```bash
+pip install python-dotenv
+```
+5. Create your local `.env`.
+```powershell
+Copy-Item .env.example .env
+```
+```bash
+cp .env.example .env
+```
+6. Put PDFs into `input/`.
+7. Run the pipeline.
+```bash
+python -m src.main
+```
 
 ## Environment Variables
 Required:
