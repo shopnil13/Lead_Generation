@@ -32,6 +32,7 @@ python3 -m venv .venv
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
+For linux:
 ```bash
 source .venv/bin/activate
 ```
